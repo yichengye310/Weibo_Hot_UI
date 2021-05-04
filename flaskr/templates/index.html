@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微博热搜</title>
+    <script data-ad-client="ca-pub-2744710920058829" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<style>
+    .flex {
+        display: flex;
+    }
+</style>
+<body>
+{#{% extends 'base.html' %}#}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="flex">
+        <div><a target="_blank"
+                href="https://s.weibo.com/weibo/?q={{ post['title'] }}">{{ post['title'] }}</a></div>
+        &nbsp;&nbsp;
+        <div>{{ post['count'] }}</div>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
+</body>
+</html>
